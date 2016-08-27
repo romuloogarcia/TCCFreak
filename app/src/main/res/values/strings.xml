@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">TCCFreak</string>
+    <string name="dummy_content">WELCOME TO TCCFREAK!</string>
+    <string name="edtLogin">Enter your login</string>
+    <string name="edtSenha">Enter your password</string>
+    <string name="msgLoginSenha">Login and/or password invalid!</string>
+    <string name="dlgSair">Exit</string>
+    <string name="msgSair">Do you really want to exit?</string>
+    <string name="opSim">Yes</string>
+    <string name="opNao">No</string>
+    <string name="opOK">OK</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>
