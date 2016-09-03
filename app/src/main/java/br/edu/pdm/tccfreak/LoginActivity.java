@@ -57,7 +57,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void sair() {
-        // finalizar a atividade e sai
+        // finalizar a atividade
         AlertDialog.Builder dialogoSair = new AlertDialog.Builder(this);
         dialogoSair.setTitle(R.string.dlgSair);
         dialogoSair.setMessage(R.string.msgSair);
