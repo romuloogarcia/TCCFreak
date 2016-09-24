@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -73,6 +74,7 @@ public class PrincipalActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.mnConfiguracoes) {
+            Toast.makeText(PrincipalActivity.this, "Clicado em configurações", Toast.LENGTH_LONG).show();
             return true;
         }
 
@@ -86,14 +88,15 @@ public class PrincipalActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.mnAluno) {
-
+            Toast.makeText(PrincipalActivity.this, "Clicado em aluno", Toast.LENGTH_LONG).show();
         } else if (id == R.id.mnTrabalho) {
-
+            Toast.makeText(PrincipalActivity.this, "Clicado em trabalho", Toast.LENGTH_LONG).show();
         } else if (id == R.id.mnSobre) {
-
+            Toast.makeText(PrincipalActivity.this, "Clicado em sobre", Toast.LENGTH_LONG).show();
         } else if (id == R.id.mnSair) {
             sair();
         } else if (id == R.id.mnSincronizar) {
+            Toast.makeText(PrincipalActivity.this, "Clicado em sincronizar", Toast.LENGTH_LONG).show();
 
         }
 
