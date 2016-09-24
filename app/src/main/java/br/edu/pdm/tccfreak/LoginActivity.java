@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String strSenha = edtSenha.getText().toString();
                 if (strLogin.trim().equals("tccfreak") && strSenha.trim().equals("tccfreak")) {
                     Intent it = new Intent(this, PrincipalActivity.class);
+                    it.putExtra("usuario", "tccfreak");
                     startActivity(it);
                     finish();
                 } else {

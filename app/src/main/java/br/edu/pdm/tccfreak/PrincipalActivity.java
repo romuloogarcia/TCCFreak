@@ -1,17 +1,19 @@
 package br.edu.pdm.tccfreak;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -23,12 +25,11 @@ public class PrincipalActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fabFrequencia);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
 
@@ -40,6 +41,10 @@ public class PrincipalActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        // recuperamos o usuario passado por parâmetro
+        String usuario = getIntent().getStringExtra("usuario");
+        Snackbar.make(navigationView, "Seja bem-vindo " + usuario, Snackbar.LENGTH_LONG).show();
     }
 
     @Override
@@ -67,7 +72,7 @@ public class PrincipalActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.mnConfiguracoes) {
             return true;
         }
 
@@ -80,22 +85,36 @@ public class PrincipalActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.mnAluno) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.mnTrabalho) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.mnSobre) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.mnSair) {
+            sair();
+        } else if (id == R.id.mnSincronizar) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void sair() {
+        // finalizar a atividade
+        AlertDialog.Builder dialogoSair = new AlertDialog.Builder(this);
+        dialogoSair.setTitle(R.string.dlgSair);
+        dialogoSair.setMessage(R.string.msgSair);
+        dialogoSair.setNegativeButton(R.string.opNao, null);
+        dialogoSair.setPositiveButton(R.string.opSim, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+                System.exit(0);
+            }
+        });
+        dialogoSair.show();
     }
 }

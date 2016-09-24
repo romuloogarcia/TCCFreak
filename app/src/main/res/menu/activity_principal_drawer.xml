@@ -3,33 +3,29 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/mnAluno"
+            android:icon="@android:drawable/ic_menu_crop"
+            android:title="Aluno" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/mnTrabalho"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Trabalho" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/mnSobre"
+            android:icon="@android:drawable/ic_menu_info_details"
+            android:title="Sobre" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/mnSair"
+            android:icon="@android:drawable/ic_notification_clear_all"
+            android:title="Sair" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Sincronização">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:id="@+id/mnSincronizar"
+                android:icon="@android:drawable/ic_menu_rotate"
+                android:title="Sincronizar" />
         </menu>
     </item>
 
