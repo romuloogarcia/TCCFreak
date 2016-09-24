@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class PrincipalActivity extends AppCompatActivity
@@ -45,7 +46,11 @@ public class PrincipalActivity extends AppCompatActivity
 
         // recuperamos o usuario passado por parâmetro
         String usuario = getIntent().getStringExtra("usuario");
-        Snackbar.make(navigationView, "Seja bem-vindo " + usuario, Snackbar.LENGTH_LONG).show();
+        // Snackbar.make(navigationView, "Seja bem-vindo " + usuario, Snackbar.LENGTH_LONG).show();
+        TextView txtUsuario = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtUsuario);
+        TextView txtEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtEmail);
+        txtUsuario.setText(usuario);
+        txtEmail.setText(usuario);
     }
 
     @Override
