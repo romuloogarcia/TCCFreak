@@ -1,5 +1,6 @@
 package br.edu.pdm.tccfreak.model;
 
+import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
@@ -20,7 +21,7 @@ public class Usuario {
     private String senha;
     @DatabaseField(canBeNull = false)
     private String email;
-    @DatabaseField
+    @DatabaseField(dataType = DataType.SERIALIZABLE)
     private byte[] foto;
 
     public Usuario() {
