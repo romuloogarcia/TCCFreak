@@ -21,7 +21,7 @@ import br.edu.pdm.tccfreak.model.Usuario;
 
 /**
  * Database helper class used to manage the creation and upgrading of your database. This class also usually provides
- * the DAOs used by the other classes.
+ * the DAOs used by the other classes. ad
  */
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
 
