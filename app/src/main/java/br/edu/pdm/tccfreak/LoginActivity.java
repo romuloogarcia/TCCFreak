@@ -2,7 +2,6 @@ package br.edu.pdm.tccfreak;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,32 +9,26 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import org.androidannotations.annotations.Click;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
+
 import br.edu.pdm.tccfreak.helper.DatabaseHelper;
 import br.edu.pdm.tccfreak.model.Usuario;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+@EActivity(R.layout.activity_login)
+public class LoginActivity extends AppCompatActivity {
 
-    private EditText edtLogin;
-    private EditText edtSenha;
-    private ImageButton btnLogin;
-    private ImageButton btnSair;
+    @ViewById
+    protected EditText edtLogin;
+    @ViewById
+    protected EditText edtSenha;
+    @ViewById
+    protected ImageButton btnLogin;
+    @ViewById
+    protected ImageButton btnSair;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        // recuperando instâncias do XML(findViewById)
-        edtLogin = (EditText) findViewById(R.id.edtLogin);
-        edtSenha = (EditText) findViewById(R.id.edtSenha);
-        btnLogin = (ImageButton) findViewById(R.id.btnLogin);
-        btnSair = (ImageButton) findViewById(R.id.btnSair);
-
-        btnLogin.setOnClickListener(this);
-        btnSair.setOnClickListener(this);
-
-    }
-
-    @Override
+    @Click({R.id.btnSair, R.id.btnLogin})
     public void onClick(View view) {
         DatabaseHelper dh = new DatabaseHelper(this);
         switch (view.getId()) {
