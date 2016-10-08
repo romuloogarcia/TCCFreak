@@ -4,7 +4,6 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import br.edu.pdm.tccfreak.model.Usuario;
 
 public class PrincipalActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -45,12 +46,12 @@ public class PrincipalActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // recuperamos o usuario passado por parâmetro
-        String usuario = getIntent().getStringExtra("usuario");
+        Usuario usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         // Snackbar.make(navigationView, "Seja bem-vindo " + usuario, Snackbar.LENGTH_LONG).show();
         TextView txtUsuario = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtUsuario);
         TextView txtEmail = (TextView) navigationView.getHeaderView(0).findViewById(R.id.txtEmail);
-        txtUsuario.setText(usuario);
-        txtEmail.setText(usuario);
+        txtUsuario.setText(usuario.getNome());
+        txtEmail.setText(usuario.getEmail());
     }
 
     @Override

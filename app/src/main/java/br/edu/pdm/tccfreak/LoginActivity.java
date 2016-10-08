@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import br.edu.pdm.tccfreak.helper.DatabaseHelper;
+import br.edu.pdm.tccfreak.model.Usuario;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText edtLogin;
@@ -34,14 +37,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+        DatabaseHelper dh = new DatabaseHelper(this);
         switch (view.getId()) {
             case R.id.btnLogin:
                 // recuperar valores da tela
                 String strLogin = edtLogin.getText().toString();
                 String strSenha = edtSenha.getText().toString();
-                if (strLogin.trim().equals("tccfreak") && strSenha.trim().equals("tccfreak")) {
+                Usuario u = dh.getUsuarioByLoginSenha(strLogin, strSenha);
+                if (u != null) {
                     Intent it = new Intent(this, PrincipalActivity.class);
-                    it.putExtra("usuario", "tccfreak");
+                    it.putExtra("usuario", u);
                     startActivity(it);
                     finish();
                 } else {

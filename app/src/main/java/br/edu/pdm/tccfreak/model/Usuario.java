@@ -4,13 +4,15 @@ import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.io.Serializable;
+
 /**
  * Classe que representa um Usuário.
  *
  * @since 24/09/2016
  */
 @DatabaseTable(tableName = "usuario")
-public class Usuario {
+public class Usuario implements Serializable {
     @DatabaseField(generatedId = true)
     private Integer codigo;
     @DatabaseField(canBeNull = false)
